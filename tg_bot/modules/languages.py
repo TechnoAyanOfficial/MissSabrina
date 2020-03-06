@@ -19,8 +19,8 @@ LOADED_LANGS_ID = []
 LANGS_TEXT = {}
 FUNC_LANG = {}
 
-for x in os.listdir('emilia/modules/langs'):
-	if os.path.isdir('emilia/modules/langs/'+x):
+for x in os.listdir('tg_bot/modules/langs'):
+	if os.path.isdir('tg_bot/modules/langs/'+x):
 		continue
 	x = x.replace('.py', '')
 	LOADED_LANGS_ID.append(x)
