@@ -5,10 +5,10 @@ id = {
 # main stuff
 	"start_text": """
 Hai {}, nama saya {}! Saya seorang manajer grup yang dikelola oleh [master saya ini](tg://user?id={}).
-Untuk mendapatkan info status dan update bot ini, anda dapat bergabung dengan channel kami [Ayra's Bot News](https://t.me/AyraBotNews)
+Untuk mendapatkan info status d
 
 Ada masalah atau butuh bantuan lebih?
-Gabung grup [Emilia Official Support](https://t.me/EmiliaOfficial)!
+Gabung grup [Ctrl Official Support](https://t.me/ctrlsupport)!
 
 Anda dapat menemukan daftar perintah yang tersedia dengan /help.
 
@@ -35,13 +35,13 @@ All commands can either be used with / or !.
 Dan berikut ini:
 """,
 	"donate_text": """Hai, senang mendengar Anda ingin menyumbang!
-Butuh banyak pekerjaan untuk [pencipta saya](tg://user?id=388576209) untuk membawa saya ke tempat saya sekarang, dan \
+Butuh banyak pekerjaan untuk [pencipta saya](tg://user?id=594813047) untuk membawa saya ke tempat saya sekarang, dan \
 setiap sumbangan membantu dan memotivasi dia untuk membuat saya lebih baik.
 
 Semua uang sumbangan akan diberikan ke VPS yang lebih baik untuk menjadi tuan rumah saya, dan atau beberapa makanan. \
 Dia hanya orang biasa, jadi akan sangat membantu dia!
 
-Jika anda memang berminat untuk donate, silahkan kunjungi ayrahikari.github.io/donations.html, Terima kasih 😁""",
+Jika anda memang berminat untuk donate, silahkan kunjungi @ctrlsupport, Terima kasih 😁""",
 	
 # Help modules
 	"language_help": """Tidak semua grup berbicara bahasa Indonesia; beberapa grup lebih suka Emilia menanggapi dalam bahasa mereka sendiri.
