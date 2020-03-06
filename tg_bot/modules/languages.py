@@ -24,7 +24,7 @@ for x in os.listdir('tg_bot/modules/langs'):
 		continue
 	x = x.replace('.py', '')
 	LOADED_LANGS_ID.append(x)
-	imported_langs = importlib.import_module("emilia.modules.langs." + x)
+	imported_langs = importlib.import_module("tg_bot.modules.langs." + x)
 	FUNC_LANG[x] = imported_langs
 	LANGS_TEXT[x] = imported_langs.__lang__
 
