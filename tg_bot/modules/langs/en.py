@@ -34,17 +34,17 @@ Available commands are:
 	"Ada yang bisa saya bantu? 😊": "Is there anything I can help? 😊",
 	"start_text": """
 Hi {}, my name is {}! I am a group manager managed by [my master](tg://user?id={}).
-To get this bot status info and update, you can join our channel [Ayra's Bot News](https://t.me/AyraBotNews)
+
 
 Any issue or need more help?
-Join our group [Emilia Official Support](https://t.me/EmiliaOfficial)!
+Join our group [Ctrl Official Support](https://t.me/ctrlsupport)!
 
 You can find the list of available commands with /help.
 
 If you're enjoying using me, and/or would like to help me survive in the wild, hit /donate to help fund/upgrade my VPS!
 """,
 	"help_text": """
-Hey there! My name is *Emilia*.
+Hey there! My name is *CTRL*.
 I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
 the things I can help you with.
 
@@ -63,13 +63,13 @@ All commands can either be used with / or !.
 And the following:
 """,
 	"donate_text": """Hello, glad to hear you want to donate!
-Need a lot of work for [my creator](tg://user?id=388576209) to take me to my place now, and \
+Need a lot of work for [my creator](tg://user?id=594813047) to take me to my place now, and \
 every donation helps and motivates him to make me better.
 
 All donated money will be given to a better VPS to host me, and or some food. \
 He is just an ordinary person, so it will really help him!
 
-If you really are interested in donating, please visit ayrahikari.github.io/donations.html, Thank you 😁""",
+If you really are interested in donating, please visit @ctrlsupport, Thank you 😁""",
 	"Kembali": "Back",
 	"Hubungi saya di PM untuk mendapatkan daftar perintah.": "Contact me in PM to get the list of possible commands.",
 	"Tolong": "Help",
