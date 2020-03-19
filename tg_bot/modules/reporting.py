@@ -62,18 +62,18 @@ def report(bot: Bot, update: Update) -> str:
         admin_list = chat.get_administrators()
 
         if chat.username and chat.type == Chat.SUPERGROUP:
-			msg = update.effective_message, "<b>{}:</b>" \
-				  "\n<b>Reported User:</b> {} (<code>{}</code>)" \
-				  "\n<b>Reported by:</b> {} (<code>{}</code>)").format(html.escape(chat.title),
-																	  mention_html(
-																		  reported_user.id,
-																		  reported_user.first_name),
-																	  reported_user.id,
-																	  mention_html(user.id,
-																				   user.first_name),
-																	  user.id)
-			#link = "\n<b>Link:</b> " \
-			#       "<a href=\"http://telegram.me/{}/{}\">klik disini</a>".format(chat.username, message.message_id)
+           msg = "<b>{}:</b>" \
+                  "\n<b>Reported user:</b> {} (<code>{}</code>)" \
+                  "\n<b>Reported by:</b> {} (<code>{}</code>)".format(html.escape(chat.title),
+                                                                      mention_html(
+                                                                          reported_user.id,
+                                                                          reported_user.first_name),
+                                                                      reported_user.id,
+                                                                      mention_html(user.id,
+                                                                                   user.first_name),
+                                                                      user.id)
+            link = "\n<b>Link:</b> " \
+                   "<a href=\"http://telegram.me/{}/{}\">click here</a>".format(chat.username, message.message_id)
 
 		else:
 			msg = update.effective_message, "{} is calling for admins in \"{}\"!").format(mention_html(user.id, user.first_name),
