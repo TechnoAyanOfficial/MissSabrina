@@ -62,48 +62,71 @@ def report(bot: Bot, update: Update) -> str:
         admin_list = chat.get_administrators()
 
         if chat.username and chat.type == Chat.SUPERGROUP:
-            msg = "<b>{}:</b>" \
-                  "\n<b>Reported user:</b> {} (<code>{}</code>)" \
-                  "\n<b>Reported by:</b> {} (<code>{}</code>)".format(html.escape(chat.title),
-                                                                      mention_html(
-                                                                          reported_user.id,
-                                                                          reported_user.first_name),
-                                                                      reported_user.id,
-                                                                      mention_html(user.id,
-                                                                                   user.first_name),
-                                                                      user.id)
-            link = "\n<b>Link:</b> " \
-                   "<a href=\"http://telegram.me/{}/{}\">click here</a>".format(chat.username, message.message_id)
+			msg = tl(update.effective_message, "<b>{}:</b>" \
+				  "\n<b>Pengguna yang dilaporkan:</b> {} (<code>{}</code>)" \
+				  "\n<b>Dilaporkan oleh:</b> {} (<code>{}</code>)").format(html.escape(chat.title),
+																	  mention_html(
+																		  reported_user.id,
+																		  reported_user.first_name),
+																	  reported_user.id,
+																	  mention_html(user.id,
+																				   user.first_name),
+																	  user.id)
+			#link = "\n<b>Link:</b> " \
+			#       "<a href=\"http://telegram.me/{}/{}\">klik disini</a>".format(chat.username, message.message_id)
 
-            should_forward = False
+		else:
+			msg = tl(update.effective_message, "{} memanggil admin di \"{}\"!").format(mention_html(user.id, user.first_name),
+															   html.escape(chat_name))
+			#link = ""
 
-        else:
-            msg = "{} is calling for admins in \"{}\"!".format(mention_html(user.id, user.first_name),
-                                                               html.escape(chat_name))
-            link = ""
-            should_forward = True
+		if chat.username:
+			chatlink = "https://t.me/{}/{}".format(chat.username, str(message.reply_to_message.message_id))
+		else:
+			chatlink = "https://t.me/c/{}/{}".format(str(chat.id)[4:], str(message.reply_to_message.message_id))
+		keyboard = [
+			  [InlineKeyboardButton(tl(update.effective_message, "⚠️ Message repoted"), url=chatlink)],
+			  [InlineKeyboardButton(tl(update.effective_message, "⚠️ Kick"), callback_data="rp_{}=1={}".format(chat.id, reported_user.id)),
+			  InlineKeyboardButton(tl(update.effective_message, "⛔️ Banned"), callback_data="rp_{}=2={}".format(chat.id, reported_user.id))],
+			  [InlineKeyboardButton(tl(update.effective_message, "Delete message"), callback_data="rp_{}=3={}".format(chat.id, message.reply_to_message.message_id))],
+			  [InlineKeyboardButton(tl(update.effective_message, "Close button"), callback_data="rp_{}=4={}".format(chat.id, reported_user.id))]
+			]
+		reply_markup = InlineKeyboardMarkup(keyboard)
 
-        for admin in admin_list:
-            if admin.user.is_bot:  # can't message bots
-                continue
+		should_forward = True
+		bot.send_message(chat.id, tl(update.effective_message, "<i>⚠️ Pesan telah di laporkan ke semua admin!</i>"), parse_mode=ParseMode.HTML, reply_to_message_id=message.message_id)
 
-            if sql.user_should_report(admin.user.id):
-                try:
-                    bot.send_message(admin.user.id, msg + link, parse_mode=ParseMode.HTML)
+		CURRENT_REPORT[str(chat.id)] = msg
+		CURRENT_REPORT[str(chat.id)+"key"] = reply_markup
+		CURRENT_REPORT[str(chat.id)+"user"] = {'name': reported_user.first_name, 'id': reported_user.id, 'rname': user.first_name, 'rid': user.id}
+		for admin in admin_list:
+			if admin.user.is_bot:  # can't message bots
+				continue
 
-                    if should_forward:
-                        message.reply_to_message.forward(admin.user.id)
+			if sql.user_should_report(admin.user.id):
+				try:
+					#bot.send_message(admin.user.id, msg + link, parse_mode=ParseMode.HTML)
+					#bot.send_message(admin.user.id, msg, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
 
-                        if len(message.text.split()) > 1:  # If user is giving a reason, send his message too
-                            message.forward(admin.user.id)
+					try:
+						if should_forward:
+							message.reply_to_message.forward(admin.user.id)
 
-                except Unauthorized:
-                    pass
-                except BadRequest as excp:  # TODO: cleanup exceptions
-                    LOGGER.exception("Exception while reporting user")
-        return msg
+							if len(message.text.split()) > 1:  # If user is giving a reason, send his message too
+								message.forward(admin.user.id)
+					except:
+						pass
+					bot.send_message(admin.user.id, msg, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
 
-    return ""
+				except Unauthorized:
+					pass
+				except BadRequest as excp:  # TODO: cleanup exceptions
+					LOGGER.exception("Exception while reporting user")
+		return msg
+
+	return ""
+        
+                        
 
 
 def __migrate__(old_chat_id, new_chat_id):
