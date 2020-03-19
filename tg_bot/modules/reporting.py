@@ -72,8 +72,8 @@ def report(bot: Bot, update: Update) -> str:
                                                                       mention_html(user.id,
                                                                                    user.first_name),
                                                                       user.id)
-            link = "\n<b>Link:</b> " \
-                   "<a href=\"http://telegram.me/{}/{}\">click here</a>".format(chat.username, message.message_id)
+            #link = "\n<b>Link:</b> " \
+            #     "<a href=\"http://telegram.me/{}/{}\">click here</a>".format(chat.username, message.message_id)
 
 		else:
 			msg = update.effective_message, "{} is calling for admins in \"{}\"!").format(mention_html(user.id, user.first_name),
