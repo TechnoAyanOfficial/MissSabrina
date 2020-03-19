@@ -62,9 +62,9 @@ def report(bot: Bot, update: Update) -> str:
         admin_list = chat.get_administrators()
 
         if chat.username and chat.type == Chat.SUPERGROUP:
-			msg = tl(update.effective_message, "<b>{}:</b>" \
+			msg = (update.effective_message, "<b>{}:</b>" \
 				  "\n<b>Reported User:</b> {} (<code>{}</code>)" \
-				  "\n<b>Dilaporkan oleh:</b> {} (<code>{}</code>)").format(html.escape(chat.title),
+				  "\n<b>Reported by:</b> {} (<code>{}</code>)").format(html.escape(chat.title),
 																	  mention_html(
 																		  reported_user.id,
 																		  reported_user.first_name),
@@ -76,7 +76,7 @@ def report(bot: Bot, update: Update) -> str:
 			#       "<a href=\"http://telegram.me/{}/{}\">klik disini</a>".format(chat.username, message.message_id)
 
 		else:
-			msg = tl(update.effective_message, "{} memanggil admin di \"{}\"!").format(mention_html(user.id, user.first_name),
+			msg = tl(update.effective_message, "{} is calling for admins in \"{}\"!").format(mention_html(user.id, user.first_name),
 															   html.escape(chat_name))
 			#link = ""
 
@@ -94,7 +94,7 @@ def report(bot: Bot, update: Update) -> str:
 		reply_markup = InlineKeyboardMarkup(keyboard)
 
 		should_forward = True
-		bot.send_message(chat.id, tl(update.effective_message, "<i>⚠️ Pesan telah di laporkan ke semua admin!</i>"), parse_mode=ParseMode.HTML, reply_to_message_id=message.message_id)
+		bot.send_message(chat.id, (update.effective_message, "<i>⚠️ Pesan telah di laporkan ke semua admin!</i>"), parse_mode=ParseMode.HTML, reply_to_message_id=message.message_id)
 
 		CURRENT_REPORT[str(chat.id)] = msg
 		CURRENT_REPORT[str(chat.id)+"key"] = reply_markup
