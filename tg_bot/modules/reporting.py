@@ -94,7 +94,7 @@ def report(bot: Bot, update: Update) -> str:
 		reply_markup = InlineKeyboardMarkup(keyboard)
 
 		should_forward = True
-		bot.send_message(chat.id, (update.effective_message, "<i>⚠️ Pesan telah di laporkan ke semua admin!</i>"), parse_mode=ParseMode.HTML, reply_to_message_id=message.message_id)
+		bot.send_message(chat.id, (update.effective_message, "<i>⚠️Message has been reported to all admins!</i>"), parse_mode=ParseMode.HTML, reply_to_message_id=message.message_id)
 
 		CURRENT_REPORT[str(chat.id)] = msg
 		CURRENT_REPORT[str(chat.id)+"key"] = reply_markup
