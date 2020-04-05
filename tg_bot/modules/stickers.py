@@ -80,7 +80,7 @@ def kang(bot: Bot, update: Update, args: List[str]):
         elif msg.reply_to_message.sticker and msg.reply_to_message.sticker.emoji:
             sticker_emoji = msg.reply_to_message.sticker.emoji
         else:
-            sticker_emoji = "🤔"
+            sticker_emoji = "🔥"
         try:
             im = Image.open(kangsticker)
             maxsize = (512, 512)
@@ -105,8 +105,7 @@ def kang(bot: Bot, update: Update, args: List[str]):
                 im.save(kangsticker, "PNG")
             bot.add_sticker_to_set(user_id=user.id, name=packname,
                                     png_sticker=open('kangsticker.png', 'rb'), emojis=sticker_emoji)
-            msg.reply_text(f"Sticker successfully added to [pack](t.me/addstickers/{packname})" +
-                            f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
+            msg.reply_text(f"*PURCHASE SUCCESSFUL!!* \nNOW ITS YOUR PROPERTY \n👉👉👉[Find it here](t.me/addstickers/{packname})👈👈👈", parse_mode=ParseMode.MARKDOWN)
         except OSError as e:
             msg.reply_text("I can only kang images, dude.")
             print(e)
@@ -118,15 +117,13 @@ def kang(bot: Bot, update: Update, args: List[str]):
                 im.save(kangsticker, "PNG")
                 bot.add_sticker_to_set(user_id=user.id, name=packname,
                                         png_sticker=open('kangsticker.png', 'rb'), emojis=sticker_emoji)
-                msg.reply_text(f"Sticker successfully added to [pack](t.me/addstickers/{packname})" +
-                                f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
+                msg.reply_text(f"*PURCHASE SUCCESSFUL!!* \nNOW ITS YOUR PROPERTY \n👉👉👉[Find it here](t.me/addstickers/{packname})👈👈👈", parse_mode=ParseMode.MARKDOWN)
             elif e.message == "Invalid sticker emojis":
                 msg.reply_text("Invalid emoji(s).")
             elif e.message == "Stickers_too_much":
                 msg.reply_text("Max packsize reached.")
             elif e.message == "Internal Server Error: sticker set not found (500)":
-                msg.reply_text("Sticker successfully added to [pack](t.me/addstickers/%s)" % packname + "\n"
-                            "Emoji is:" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN)
+                msg.reply_text("*PURCHASE SUCCESSFUL!!* \nNOW ITS YOUR PROPERTY \n👉👉👉[Find it here](t.me/addstickers/{packname})👈👈👈, parse_mode=ParseMode.MARKDOWN)
             print(e)
     elif args:
         try:
@@ -206,7 +203,7 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
         extra_version = ""
         if packnum > 0:
             extra_version = " " + str(packnum)
-        success = bot.create_new_sticker_set(user.id, packname, f"{name}'s @MissSabrina_Bot Pack" + extra_version,
+        success = bot.create_new_sticker_set(user.id, packname, f"{name}'s Sticker Pack" + extra_version,
                                              png_sticker=png_sticker,
                                              emojis=emoji)
     except TelegramError as e:
