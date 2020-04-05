@@ -35,5 +35,10 @@ def tts(bot: Bot, update: Update, args):
         tts.save("k.mp3")
     with open("k.mp3", "rb") as speech:
         update.message.reply_voice(speech, quote=False)
+     
+        
+__mod_name__ = "Text To Speech"
+
+__help__ = """/tts <Any Text> : Converts text to speech
 
 dispatcher.add_handler(DisableAbleCommandHandler('tts', tts, pass_args=True))
