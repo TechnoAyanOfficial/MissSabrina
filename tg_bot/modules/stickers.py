@@ -135,7 +135,7 @@ def kang(bot: Bot, update: Update, args: List[str]):
                 png_sticker = urlemoji[1] 
                 sticker_emoji = urlemoji[2]
             except IndexError:
-                sticker_emoji = "🤔"
+                sticker_emoji = "🔥"
             urllib.urlretrieve(png_sticker, kangsticker)
             im = Image.open(kangsticker)
             maxsize = (512, 512)
@@ -206,7 +206,7 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
         extra_version = ""
         if packnum > 0:
             extra_version = " " + str(packnum)
-        success = bot.create_new_sticker_set(user.id, packname, f"{name}'s Sticker Pack By @MissSabrina_Bot" + extra_version,
+        success = bot.create_new_sticker_set(user.id, packname, f"{name}'s @MissSabrina_Bot Pack" + extra_version,
                                              png_sticker=png_sticker,
                                              emojis=emoji)
     except TelegramError as e:
