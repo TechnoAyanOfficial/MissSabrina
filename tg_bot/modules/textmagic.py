@@ -27,14 +27,16 @@ def weebify(bot: Bot, update: Update, args: List[str]):
         message.reply_text(string)
 
 
-help = """
- - /textmagic <text>: Apply Magic Styles to your text
+__help__ = """
+ Originally Made By [Ayan Ansari](t.me/TechnoAyanOfficial)
+ 
+ - /blackout <text>: Apply Blackout Style to your text
  """
 
-WEEBIFY_HANDLER = DisableAbleCommandHandler("textmagic", weebify, pass_args=True)
+WEEBIFY_HANDLER = DisableAbleCommandHandler("blackout", weebify, pass_args=True)
 
 dispatcher.add_handler(WEEBIFY_HANDLER)
 
-mod_name = "Text Magic"
+__mod_name__ = "Black Out"
 command_list = ["weebify"]
 handlers = [WEEBIFY_HANDLER]
