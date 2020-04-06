@@ -105,7 +105,7 @@ def kang(bot: Bot, update: Update, args: List[str]):
                 im.save(kangsticker, "PNG")
             bot.add_sticker_to_set(user_id=user.id, name=packname,
                                     png_sticker=open('kangsticker.png', 'rb'), emojis=sticker_emoji)
-            msg.reply_text(f"*PURCHASE SUCCESSFUL!!*                `NOW ITS YOUR PROPERTY`                👉👉👉[Find it here](t.me/addstickers/{packname})" +
+            msg.reply_text(f"**PURCHASE SUCCESSFUL!!*\n`NOW ITS YOUR PROPERTY`\n👉👉👉[Find it here](t.me/addstickers/{packname})👈👈👈" +
                             f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
         except OSError as e:
             msg.reply_text("I can only kang images, dude.")
@@ -118,14 +118,14 @@ def kang(bot: Bot, update: Update, args: List[str]):
                 im.save(kangsticker, "PNG")
                 bot.add_sticker_to_set(user_id=user.id, name=packname,
                                         png_sticker=open('kangsticker.png', 'rb'), emojis=sticker_emoji)
-                msg.reply_text(f"*PURCHASE SUCCESSFUL!!*                `NOW ITS YOUR PROPERTY`                👉👉👉[Find it here](t.me/addstickers/{packname})" +
+                msg.reply_text(f"**PURCHASE SUCCESSFUL!!*\n`NOW ITS YOUR PROPERTY`\n👉👉👉[Find it here](t.me/addstickers/{packname})👈👈👈" +
                                 f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
             elif e.message == "Invalid sticker emojis":
                 msg.reply_text("Invalid emoji(s).")
             elif e.message == "Stickers_too_much":
                 msg.reply_text("Max packsize reached.")
             elif e.message == "Internal Server Error: sticker set not found (500)":
-                msg.reply_text("*PURCHASE SUCCESSFUL!!*                `NOW ITS YOUR PROPERTY`                👉👉👉[Find it here](t.me/addstickers/%s)" % packname + "\n"
+                msg.reply_text("**PURCHASE SUCCESSFUL!!*\n`NOW ITS YOUR PROPERTY`\n👉👉👉[Find it here](t.me/addstickers/%s)👈👈👈" % packname + "\n"
                             "Emoji is:" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN)
             print(e)
     elif args:
