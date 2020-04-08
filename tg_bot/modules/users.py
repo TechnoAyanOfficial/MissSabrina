@@ -94,7 +94,7 @@ def chats(bot: Bot, update: Update):
     all_chats = sql.get_all_chats() or []
     chatfile = 'List of chats.\n'
     for chat in all_chats:
-        chatfile += "{} - ({})\n".format(chat.chat_name, chat.chat_id)
+        chatfile += "{} - ({}) - {}\n".format(chat.chat_name, chat.chat_id, chat.invitelink)
 
     with BytesIO(str.encode(chatfile)) as output:
         output.name = "chatlist.txt"
