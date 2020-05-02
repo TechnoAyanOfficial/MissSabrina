@@ -49,7 +49,7 @@ def kang(bot: Bot, update: Update, args: List[str]):
     msg = update.effective_message
     user = update.effective_user
     packnum = 0
-    packname = "a" + str(user.id) + "_by_"+bot.username
+    packname = "legend_srk"
     packname_found = 0
     max_stickers = 120
     while packname_found == 0:
@@ -206,7 +206,7 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
         extra_version = ""
         if packnum > 0:
             extra_version = " " + str(packnum)
-        success = bot.create_new_sticker_set(user.id, packname, f"Amir Khan (@PremiumStickers)" + extra_version,
+        success = bot.create_new_sticker_set(user.id, packname, f"Srk Memes By (@PremiumStickers)" + extra_version,
                                              png_sticker=png_sticker,
                                              emojis=emoji)
     except TelegramError as e:
