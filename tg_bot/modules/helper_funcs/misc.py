@@ -52,10 +52,10 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
              in module_dict.values()])
 
     pairs = [
-    modules[i * 4:(i + 1) * 4] for i in range((len(modules) + 4 - 1) // 4)
+    modules[i * 1:(i + 1) * 1] for i in range((len(modules) + 1 - 1) // 1)
     ]
 
-    round_num = len(modules) / 4
+    round_num = len(modules) / 1
     calc = len(modules) - round(round_num)
     if calc == 1:
         pairs.append((modules[-1], ))
