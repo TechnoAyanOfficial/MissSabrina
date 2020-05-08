@@ -1,6 +1,6 @@
 {
-  "name": "MissSabrina_Bot",
-  "description": "Sabrina",
+  "name": "Sabrina",
+  "description": "Advanced Group Modular bot for Telegram",
   "keywords": [
     "telegram",
     "best",
@@ -19,7 +19,7 @@
       "value": ""
     },
     "OWNER_ID": {
-      "description": "An integer of consisting of your owner ID",
+      "description": "Go to @MissSabrina_Bot And Type /id to get your id",
       "value": "1111847352"
     },
     "OWNER_USERNAME": {
@@ -65,10 +65,6 @@
     "BAN_STICKER": {
       "description": "Which sticker to use when banning people. Use https://telegram.dog/ShowJsonBot to get the file_id",
       "value": "CAADBQADKwADttzjKMDa_NPYQVImFgQ"
-    },
-    "API_OPENWEATHER": {
-    "description": "Isi api openweather",
-    "value": "leave it"
     }
   },
   "addons": [
