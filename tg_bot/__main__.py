@@ -27,20 +27,17 @@ def escape_html(word):
     return escape(word)
 
 PM_START_TEXT = """
-Hello *{}* My name is *Sabrina*!
+Hello *{}* My name is *Voldemort*!
 
 I'm here to manage your groups! 
 
 Click Help button to find out more about how to use me to my full potential. 
 
-Join Support Chat ( @SabrinaChat ) if you need any support or help 
+Join Support Chat ( @LordVoldemordSupport ) if you need any support or help 
 
-Join ( @SabrinaOfficial ) if you want to keep up with the news, updates and bot downtime!
+Made by @Dp137
 
-Made by @TechnoAyanOfficial
 
-Want me to help you? [Click Here!](https://t.me/MissSabrina_bot?startgroup=true)
-"""
 
 
 
