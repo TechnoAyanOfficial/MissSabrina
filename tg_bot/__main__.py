@@ -35,12 +35,7 @@ Click Help button to find out more about how to use me to my full potential.
 
 Join Support Chat ( @LordVoldemordSupport ) if you need any support or help 
 
-Made by @Dp137
-
-
-
-
-
+Made by @Dp137 """
 
 HELP_STRINGS = """
 
